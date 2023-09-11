@@ -433,5 +433,6 @@ for i,v in pairs(asdachsfasdfaeckdasdasdafasdd) do
 
 	else
 		setclipboard(hwid)
+		print('hw coppied to your clipboard. Write this hw for Mr_Codex :D')
 	endw
 end

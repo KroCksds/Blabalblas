@@ -1,0 +1,429 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local Window = Rayfield:CreateWindow({
+	Name = "Casual Worl",
+	LoadingTitle = "Bitch",
+	LoadingSubtitle = "LoL",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "Rayfield Interface Suite",
+		FileName = "Big Hub"
+	},
+	KeySystem = false, 
+	KeySettings = {
+		Title = "Sirius Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/sirius)",
+		SaveKey = true,
+		Key = "ABCDEF"
+	}
+})
+
+Rayfield:Notify("Title Example", "Content/Description Example", 4483362458) 
+
+local Tab = Window:CreateTab("Tab Example", 4483362458) 
+
+local Section = Tab:CreateSection("Section Example")
+
+for i,v in pairs(workspace.map:GetChildren()) do
+	if v.Name == "biznes" and v:FindFirstChild("Humanoid")then
+		v.Name = "Bazar"
+	end
+end
+
+
+-- Lists
+
+local Promos = {
+	"FREE",
+	"krutoi228",
+	"Zenit",
+	"nalog"
+}
+
+local ClotchList = {
+	"http://www.roblox.com/asset/?id=12808045960",
+	"http://www.roblox.com/asset/?id=13121694218",
+	"http://www.roblox.com/asset/?id=13118563657",
+	"http://www.roblox.com/asset/?id=13117322084",
+	"http://www.roblox.com/asset/?id=13469431089",
+	"http://www.roblox.com/asset/?id=13399301724",
+	"http://www.roblox.com/asset/?id=12849806373",
+	"http://www.roblox.com/asset/?id=13118233790",
+	"http://www.roblox.com/asset/?id=13214898748",
+	"http://www.roblox.com/asset/?id=13122216162",
+	"http://www.roblox.com/asset/?id=13214910323",
+	"http://www.roblox.com/asset/?id=13118233790",
+	"http://www.roblox.com/asset/?id=14617428965",
+	"http://www.roblox.com/asset/?id=14617489255",
+	"http://www.roblox.com/asset/?id=14617401637",
+	"http://www.roblox.com/asset/?id=14617409775"
+}
+
+
+--variables
+
+_G.AutoSell = true
+_G.Highlight = true
+_G.Bazar = true
+_G.AutoGrab = true
+_G.AutoTp = true
+_G.AutoBuy = true
+_G.Rainbow = true
+_G.Noclip = true
+
+
+local SellRm = game:GetService("ReplicatedStorage"):WaitForChild("predlog")
+
+local Odez = game:GetService("Players").LocalPlayer.Odezda
+local Rainb = game:GetService("Players").LocalPlayer.Odezda:GetChildren()
+
+local bazar = workspace.map.Bazar
+local biznes = workspace.map.biznes
+
+
+
+-- functions
+
+
+local function ShopB()
+	for i,v in pairs(bazar:GetChildren()) do
+		if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+			local clotch = v["Shir"].ShirtTemplate
+			local status =  v["Sost"].Value
+			local PickState  = v["bzi"].Value
+
+			local BugFix = workspace.map.Bazar.Part:FindFirstChild("SurfaceGui").TextLabel
+
+
+			if _G.Highlight ~= true  then
+				return nil
+			end
+
+			if BugFix.Text ~= "Завоз через: 0" then
+				return nil
+			end
+			
+			if table.find(ClotchList,clotch) and PickState == false then
+				if not v:FindFirstChild("Highlight") then
+					local light = Instance.new("Highlight")
+					light.Parent = v
+				end
+			end
+		end
+	end
+
+	for i,v in pairs(bazar:GetChildren()) do
+		if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+			local PickState  = v["bzi"].Value
+			local clotch = v["Shir"].ShirtTemplate
+			local shir = v["Shir"]
+
+			if not table.find(ClotchList,clotch) then
+				if shir:FindFirstChild("Highlight") then
+					shir:FindFirstChild("Highlight"):Remove()
+				end
+			end
+
+			if v:FindFirstChild("Highlight") and PickState == true then
+				v:FindFirstChild("Highlight"):Remove()
+			end
+
+		end
+	end
+
+end
+
+local function Bazar()
+	for i,v in pairs(biznes:GetChildren()) do
+		if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+			local clotch = v["Shir"].ShirtTemplate
+			local status =  v["Sost"].Value
+			local PickState  = v["bzi"].Value
+
+			local BugFix = workspace.map.biznes.Part:FindFirstChild("SurfaceGui").TextLabel
+
+			if _G.Bazar ~= true then
+				return nil
+			end
+
+			if BugFix.Text ~= "Завоз через: 0" then
+				return nil
+			end
+			
+			if table.find(ClotchList,clotch) and PickState == false then
+				if not v:FindFirstChild("Highlight") then
+					local light = Instance.new("Highlight")
+					light.Parent = v
+				end
+			end
+		end
+	end
+
+	for i,v in pairs(biznes:GetChildren()) do
+		if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+			local PickState  = v["bzi"].Value
+
+			if v:FindFirstChild("Highlight") and PickState == true then
+				v:FindFirstChild("Highlight"):Remove()
+			end
+
+		end
+	end
+
+end
+
+local raindeb = true
+
+local function Rainbow()
+	if raindeb == true then
+		raindeb = false
+		for i = 1, #Rainb do
+			task.wait(0.1)
+			game:GetService("ReplicatedStorage"):WaitForChild("Vziat"):FireServer(tostring(Rainb[i]))
+			if i == #Rainb then
+				raindeb = true
+			end
+		end
+	end
+end
+
+
+
+
+
+local Dropdown = Tab:CreateDropdown({
+	Name = "Teleport",
+	Options = {"Bazar","Second"},
+	CurrentOption = "None",
+	Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Option)
+		track = Option
+	end,
+})
+
+
+
+local Button = Tab:CreateButton({
+	Name = "Exec",
+	Callback = function()
+		if track[1] == "Bazar" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-217.646912, 42.5430145, -735.514893, -0.727270901, 1.94243004e-08, 0.686350524, 2.11745892e-08, 1, -5.86382098e-09, -0.686350524, 1.02686046e-08, -0.727270901)
+		end
+		if track[1] == "Second" then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-193.339172, 46.9197159, -45.4598885, 0.665235221, 4.96318471e-08, -0.746633828, 2.43844478e-09, 1, 6.86467487e-08, 0.746633828, -4.74868607e-08, 0.665235221)
+
+		end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Update",
+	Callback = function()
+
+	end,
+})
+
+workspace.map.Part:FindFirstChildOfClass("ProximityPrompt").Name = "Seller"
+
+
+local Toggle = Tab:CreateToggle({
+	Name = "No-Clip",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.Noclip = true
+			while _G.Noclip == true do
+				local character = game.Players.LocalPlayer.Character
+				for i,v in pairs(character:GetDescendants()) do
+					pcall(function()
+						if v:IsA("BasePart") then
+							v.CanCollide = false
+						end
+					end)
+				end
+				task.wait()
+
+			end
+		else
+			_G.Noclip = false
+			task.wait(0.5)
+			local character = game.Players.LocalPlayer.Character
+				for i,v in pairs(character:GetDescendants()) do
+					pcall(function()
+						if v:IsA("BasePart") then
+							v.CanCollide = true
+						end
+					end)
+				end
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Rainbow",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.Rainbow = true
+			while _G.Rainbow == true do
+				task.wait(0.1)
+				Rainbow()
+			end
+		else
+			_G.Rainbow = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Buy",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.AutoBuy = true
+			while _G.AutoBuy== true do
+				task.wait(0.1)
+				
+				local a = game.Players.LocalPlayer.Backpack:GetChildren()
+
+			
+				for i,v in pairs(workspace.map:GetChildren()) do
+					if v:FindFirstChild("ProximityPrompt") then
+						if v.ProximityPrompt.ActionText == "Оплатить" then			
+							
+							fireproximityprompt(v.ProximityPrompt,math.huge)
+
+							if game.Players.LocalPlayer.Backpack:FindFirstChild("ODez") then
+							
+								game.Players.LocalPlayer.Backpack:FindFirstChild("ODez").Parent = game.Players.LocalPlayer.Character
+							end
+						end
+					end
+				end
+
+			end
+		else
+			_G.AutoBuy = false
+		end
+	end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Sell",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.AutoSell = true
+			while _G.AutoSell == true do
+				task.wait(0.1)
+				if Odez:FindFirstChildOfClass("StringValue") then
+					local ClName = Odez:FindFirstChildOfClass("StringValue").Name 
+					local Status = Odez:FindFirstChildOfClass("StringValue").Stat.Value
+
+					SellRm:FireServer(ClName,"prodat",Status)
+				end
+			end
+		else
+			_G.AutoSell = false
+		end
+	end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Grab Aura",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.AutoGrab = true
+			while _G.AutoGrab == true do
+				task.wait(0.2)
+					for i,v in pairs(biznes:GetChildren()) do
+						if v ~= nil and v:IsA("Model") and v:FindFirstChild("Highlight") then
+							local proximity = v.Part:FindFirstChild("ProximityPrompt")
+
+							fireproximityprompt(proximity,math.huge)
+						end
+					end
+					for i,v in pairs(bazar:GetChildren()) do
+						if v ~= nil and v:IsA("Model") and v:FindFirstChild("Highlight") then
+							local proximity = v.Part:FindFirstChild("ProximityPrompt")
+
+							fireproximityprompt(proximity,math.huge)
+						end
+					end
+			end
+		else
+			_G.AutoGrab = false
+		end
+	end,
+})
+
+
+
+local Toggle = Tab:CreateToggle({
+	Name = "Second Hand Esp",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.Highlight = true
+			while _G.Highlight == true do
+				task.wait(0.1)
+			
+				ShopB()
+			end
+		else
+			_G.Highlight = false
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Bazar Esp",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+			_G.Bazar = true
+			while _G.Bazar == true do
+				task.wait(0.1)
+			
+				Bazar()
+			end
+		else
+			_G.Bazar = false
+		end
+	end,
+})
+
+
+
+
+while true do
+task.wait(2)
+
+	for i,v in pairs(biznes:GetChildren()) do
+			if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+				if v:FindFirstChild("Highlight") then
+					v:FindFirstChild("Highlight"):Remove()
+				end
+			end
+	end
+
+	for i,v in pairs(bazar:GetChildren()) do
+			if v ~= nil and v:IsA("Model") and v:FindFirstChild("bzi") and v:FindFirstChild("Shir") then
+				if v:FindFirstChild("Highlight") then
+					v:FindFirstChild("Highlight"):Remove()
+				end
+			end
+	end
+end

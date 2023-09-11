@@ -1,6 +1,8 @@
 local asdachsfasdfaeckdasdasdafasdd = loadstring(game:HttpGet('https://pastebin.com/raw/sg3se9hA'))()
 local hwid =  game:GetService("RbxAnalyticsService"):GetClientId()
 
+local success, response = pcall(function()
+    
 
 
 for i,v in pairs(asdachsfasdfaeckdasdasdafasdd) do
@@ -434,5 +436,7 @@ for i,v in pairs(asdachsfasdfaeckdasdasdafasdd) do
 	else
 		setclipboard(hwid)
 		print('hw coppied to your clipboard. Write this hw for Mr_Codex :D')
-	endw
+	end
 end
+
+end)

